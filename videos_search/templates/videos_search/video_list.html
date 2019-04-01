@@ -1,0 +1,70 @@
+{% load static %}<!DOCTYPE html>
+<html>
+  <head>
+      <meta charset="utf-8">
+      <title>{% block title %}CollabMates{% endblock %}</title>
+      <link rel="icon" href="logo.jpeg" type="image/gif" sizes="16x16">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="shortcut icon" href="../media/media/favicon.ico"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/1.11.8/semantic.min.css"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/1.11.8/semantic.min.js"></script>
+
+  </head>
+  <body>
+  <div class="ui menu">
+  <div class="item">
+    <h3> Youtube Search Query Data</h3>
+  </div>
+</div>
+<div class="ui four column doubling stackable grid container">
+    {% for video in list_videos %}
+    <div class="column">
+        <div class="ui items">
+        <div class="item">
+            <a class="ui tiny image">
+            <img src="{{video.thumbnailUrl}}">
+            </a>
+            <div class="content">
+            <a class="header" href="{{video.videoUrl}}}">{{video.title}}</a>
+            <p>{{video.publishedAt}}
+            <div class="description">
+                <p>{{video.description}}</p>
+            </div>
+            </div>
+        </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+  
+</table>
+
+{% if is_paginated %}
+<ul class="pagination">
+{% if page_obj.has_previous %}
+    <li>
+        <span><a href="?page={{ page_obj.previous_page_number }}">Previous</a></span>
+    </li>
+{% endif %}
+    <li class="">
+        <span>Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.</span>
+    </li>
+{% if page_obj.has_next %}
+    <li>
+        <span><a href="?page={{ page_obj.next_page_number }}">Next</a></span>
+    </li>
+{% endif %}
+</ul>
+{% else %}
+    <h3>Your File Exam</h3>
+    <p>File not yet available</p>
+{% endif %}
+                      
+              
+           
+                  
+
+
+      </body>
+      </html>

@@ -38,7 +38,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
-    'video_search'
+    'videos_search',
+    'django_crontab',
+    
 ]
 
 MIDDLEWARE = [
@@ -120,3 +122,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 STATIC_URL = '/static/'
+
+CRONJOBS = [
+    ('0 * * * *', 'api.cron.youtube_data_cron','> /tmp/scheduled_job.log')
+]
