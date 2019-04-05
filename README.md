@@ -20,5 +20,7 @@ Install Django2.0, Python3.6, restframework, django_crontab.
 * Go to `localhost:8000/search`, this will open the dashboard with pagination. This shows 12 videos on a page sorted on the basis of publish time.
 
 #### Api Endpoint
-* `localhost:8000/search/api`, this returns Json response of the first 12 videos and with a `nextPageId` value.
-* The requests takes an optional parameter `pageId`. Which sends the video's data of the next page. `localhost:8000/search/api?pageId=` 
+* `localhost:8000/search/api`, this returns Json response of the first 10 videos. The response contains 2 boolean flags `has_next_page` and `has_previous_page` telling whether the page has next or previous page and 2 values `last_cursor` and `first_cursor` of the corresponding page data.
+* The requests takes an optional parameter `after` or `before`. Where after takes the `last_cursor` and gives the next page whereas before takes the `first_cursor` and gives previous page data. 
+
+`localhost:8000/search/api?after/before=` 
