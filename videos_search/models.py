@@ -1,14 +1,13 @@
 from django.db import models
 
-# Create your models here.
 class Video(models.Model):
-    videoId= models.CharField(max_length= 255, null=False)
+    video_id= models.CharField(max_length= 255, null=False)
     title = models.CharField(max_length=255, null= False) 
     description = models.TextField(null=True)
-    channelId = models.CharField(max_length=255, null= False)
-    channelTitle = models.CharField(max_length=255, null= False)
-    videoUrl = models.CharField(max_length= 511, null = False)
-    publishedAt = models.DateTimeField()
-    thumbnailUrl = models.CharField(max_length = 511)
+    channel_id = models.CharField(max_length=255, null= False)
+    channel_title = models.CharField(max_length=255, null= False)
+    video_url = models.CharField(max_length= 511, null = False)
+    published_at = models.DateTimeField()
+    thumbnail_url = models.CharField(max_length = 511)
     def __str__(self):
         return self.title

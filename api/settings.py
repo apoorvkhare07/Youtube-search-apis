@@ -124,5 +124,5 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 CRONJOBS = [
-    ('0 * * * *', 'api.cron.youtube_data_cron','> /tmp/scheduled_job.log')
+    ('*/1 * * * *', 'api.cron.youtube_data_cron','> /tmp/scheduled_job.log')
 ]
