@@ -8,11 +8,13 @@ Install Django2.0, Python3.6, restframework, django_crontab.
 ### Deployment steps
 
 * Clone the Repository
+* Install Django cursor pagination library
+  * `pip install django-cursor-pagination`
 * Run Migrations
   * `python manage.py makemigrations`
   * `python manage.py migrate`
 * Start the Cronjob
-  * `python manage.py add crontab add`: This starts a cronjob which fetches data from Youtube every hour and stores in the database.
+  * `python manage.py crontab add`: This starts a cronjob which fetches data from Youtube every hour and stores in the database.
 * Start the server
   * `python manage.py runserver`
 
